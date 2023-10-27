@@ -1,5 +1,5 @@
 # RotMG Visualia mod (ShowFPS v.2)
-Download the [Visualia.dll]((https://github.com/orba-rotmg/ShowFPS/blob/main/visualia.dll)) and put it in your mods folder.
+Download the [Visualia.dll](https://github.com/orba-rotmg/ShowFPS/blob/main/visualia.dll) and put it in your mods folder.
 # Features
 - Display fps and latency
 - Removed red pulsing overlay at low HP (**OUTDATED**)
