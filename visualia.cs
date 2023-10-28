@@ -4,6 +4,7 @@ using static MelonLoader.MelonLogger;
 using Il2CppDecaGames.RotMG.Managers;
 using Il2Cpp;
 using System.Collections;
+using Il2CppSystem.Runtime.Remoting.Messaging;
 
 namespace VisualiaMod
 {
@@ -79,13 +80,76 @@ namespace VisualiaMod
             }
 
             UpdateTextColorAndPosition();
+            // Find the Game Overlay Canvas
+            GameObject? gameOverlayCanvas = GameObject.Find("Game Overlay Canvas");
+            if (gameOverlayCanvas == null)
+            {
+                Msg("Game Overlay Canvas not found.");
+                return;
+            }
+
+            // Find and disable the Behaviour component in LowHP_Overlay
+            GameObject? lowHPOverlay = gameOverlayCanvas.transform.Find("LowHP_Overlay")?.gameObject;
+            if (lowHPOverlay == null)
+            {
+                Msg("LowHP_Overlay not found.");
+                return;
+            }
+
+            Behaviour? behaviourComponentLowHP = GetAndLogComponent<Behaviour>(lowHPOverlay, "Behaviour");
+            if (behaviourComponentLowHP != null)
+            {
+                behaviourComponentLowHP.enabled = false;
+            }
+
+            // Find and disable the Behaviour component in Underwater_Overlay
+            GameObject? underwaterOverlay = gameOverlayCanvas.transform.Find("Underwater_Overlay")?.gameObject;
+            if (underwaterOverlay == null)
+            {
+                Msg("Underwater_Overlay not found.");
+                return;
+            }
+
+            Behaviour? behaviourComponentUnderwater = GetAndLogComponent<Behaviour>(underwaterOverlay, "Behaviour");
+            if (behaviourComponentUnderwater != null)
+            {
+                behaviourComponentUnderwater.enabled = false;
+            }
+            // Find the Log_GUI GameObject
+            GameObject? logGUIGameObject = GameObject.Find("Log_GUI");
+            if (logGUIGameObject == null)
+            {
+                Msg("Log_GUI GameObject not found.");
+            }
+            else
+            {
+                // Find the Log GameObject inside Log_GUI
+                GameObject? logGameObject = FindAndLog("Log", logGUIGameObject);
+                if (logGameObject != null)
+                {
+                    // Find the ClockContainer GameObject inside Log
+                    GameObject? clockContainer = FindAndLog("ClockContainer", logGameObject);
+                    if (clockContainer != null)
+                    {
+                        // Set the ActiveSelf property of ClockContainer to false
+                        clockContainer.SetActive(false);
+                    }
+                    GameObject? LogHeader = FindAndLog("Log Header", logGameObject);
+                    if (LogHeader != null)
+                    {
+                        // Set the ActiveSelf property of ClockContainer to false
+                        LogHeader.SetActive(false);
+                    }
+                }
+            }
+
         }
 
         private void UpdateTextColorAndPosition()
         {
             if (!isCheckingTextComponent)
             {
-                MelonCoroutines.Start(CheckTextComponentValue()); // Start the MelonCoroutine
+                MelonCoroutines.Start(CheckTextComponentValue()); 
             }
         }
         private IEnumerator CheckTextComponentValue()
