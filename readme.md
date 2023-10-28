@@ -4,7 +4,7 @@ Download the [Visualia.dll](https://github.com/orba-rotmg/ShowFPS/blob/main/visu
 - Display fps and latency
 - Removed red pulsing overlay at low HP
 - Removed underwater overlay
-- Removed clock and log bar from top right
+- Removed clock and log bar from top left
  
 ## In-game preview
 
