@@ -26,5 +26,5 @@ Red (+100)
 
 #### *Note*: the ms feature is refered to latency input and not your actual internet ping.
 
-![Before](/1.PNG )
+![Before](/3.PNG )
 ![After](/2.PNG )
