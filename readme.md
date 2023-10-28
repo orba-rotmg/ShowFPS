@@ -2,8 +2,9 @@
 Download the [Visualia.dll](https://github.com/orba-rotmg/ShowFPS/blob/main/visualia.dll) and put it in your mods folder.
 # Features
 - Display fps and latency
-- Removed red pulsing overlay at low HP (**OUTDATED**)
-- Removed underwater overlay (**OUTDATED**)
+- Removed red pulsing overlay at low HP
+- Removed underwater overlay
+- Removed clock and log bar from top right
  
 ## In-game preview
 
@@ -24,3 +25,6 @@ Orange (50-100)
 Red (+100)
 
 #### *Note*: the ms feature is refered to latency input and not your actual internet ping.
+
+![Before](/1.PNG )
+![After](/2.PNG )
