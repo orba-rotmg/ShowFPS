@@ -5,6 +5,7 @@ using Il2CppDecaGames.RotMG.Managers;
 using Il2Cpp;
 using System.Collections;
 using Il2CppSystem.Runtime.Remoting.Messaging;
+using Object = UnityEngine.Object;
 
 namespace VisualiaMod
 {
@@ -67,7 +68,7 @@ namespace VisualiaMod
 
             string[] childrenNamesToDestroy = {
                 "BG_Image_TEXT", "avg_fps_text", "avg_fps_value",
-                "min_fps_text", "min_fps_value", "max_fps_text", "max_fps_value", "BG_Image_FULL", "BG_Image_BASIC"
+                "min_fps_text", "min_fps_value", "max_fps_text", "max_fps_value", "BG_Image_FULL", "BG_Image_BASIC", "ms_text", "ms_text_value"
             };
 
             foreach (string childName in childrenNamesToDestroy)
@@ -157,13 +158,11 @@ namespace VisualiaMod
             isCheckingTextComponent = true;
             while (true)
             {
-                string[] childrenNames = { "fps_text", "fps_text_value", "ms_text", "ms_text_value" };
+                string[] childrenNames = { "fps_text", "fps_text_value"};
                 Vector3[] positions =
                 {
                     new Vector3(1892.63f, 1041.095f, 0f),
-                    new Vector3(1784.126f, 1041.095f, 0f),
-                    new Vector3(1884.052f, 1021.87f, 0f),
-                    new Vector3(1776.906f, 1022.269f, 0f)
+                    new Vector3(1784.126f, 1041.095f, 0f)
                 };
 
                 for (int i = 0; i < childrenNames.Length; i++)
